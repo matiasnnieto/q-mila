@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Q´mila - Pedidos</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<script src="js/pedidos.js" defer></script>
+</head>
+<body>
+
+<div class="header">
+  <img src="https://idpkigrqxdiadoflaieh.supabase.co/storage/v1/object/public/logo/Logo.png" alt="Q´mila Logo" class="logo">
+  <div id="alerta" class="alerta"></div>
+  <button class="menu-btn" onclick="location.href='index.html'">🏠 Menú principal</button>
+</div>
+
+<h2>🍽️ Cargar nuevo pedido</h2>
+<form>
+<label>Cliente:</label><input type="text">
+<label>Producto:</label><input type="text">
+<label>Cantidad (kg):</label><input type="number" step="0.1" min="0">
+<button>Guardar pedido</button>
+</form>
+</body></html>
