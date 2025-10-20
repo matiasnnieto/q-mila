@@ -1,21 +1,33 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Q´mila - Ver Clientes</title>
+<html lang="es"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Q´mila - Ver clientes</title>
 <link rel="stylesheet" href="css/style.css">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 <script src="js/ver-clientes.js" defer></script>
-</head>
-<body>
+</head><body>
 
-<div class="header">
-  <img src="https://idpkigrqxdiadoflaieh.supabase.co/storage/v1/object/public/logo/Logo.png" alt="Q´mila Logo" class="logo">
-  <div id="alerta" class="alerta"></div>
-  <button class="menu-btn" onclick="location.href='index.html'">🏠 Menú principal</button>
-</div>
+<header class="header-bar">
+  <div class="header-left">
+    <img class="logo" src="https://idpkigrqxdiadoflaieh.supabase.co/storage/v1/object/public/logo/Logo.png" alt="Q´mila">
+  </div>
+  <nav class="nav-actions">
+    <a href="clientes.html">Cargar pedido</a>
+    <a href="pedidos.html">Ver pedidos</a>
+    <a href="ver-clientes.html">Ver clientes</a>
+  </nav>
+</header>
 
-<h2>📋 Listado de clientes</h2>
-<table id="tablaClientes"><thead><tr><th>ID</th><th>Nombre</th><th>Apellido</th></tr></thead><tbody></tbody></table>
+<main>
+  <div class="card" style="text-align:center">
+    <input id="buscarClientes" class="search-input" placeholder="🔍 Buscar cliente..." />
+  </div>
+  <div class="card">
+    <div id="alertaClientes" class="alerta"></div>
+    <table id="tablaClientes">
+      <thead><tr><th>Nombre</th><th>Apellido</th><th>Dirección</th><th>Ciudad</th><th>Teléfono</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</main>
 </body></html>

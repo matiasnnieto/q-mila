@@ -1,26 +1,45 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Q´mila - Pedidos</title>
+<html lang="es"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Q´mila - Ver pedidos</title>
 <link rel="stylesheet" href="css/style.css">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 <script src="js/pedidos.js" defer></script>
-</head>
-<body>
+</head><body>
 
-<div class="header">
-  <img src="https://idpkigrqxdiadoflaieh.supabase.co/storage/v1/object/public/logo/Logo.png" alt="Q´mila Logo" class="logo">
-  <div id="alerta" class="alerta"></div>
-  <button class="menu-btn" onclick="location.href='index.html'">🏠 Menú principal</button>
-</div>
+<header class="header-bar">
+  <div class="header-left">
+    <img class="logo" src="https://idpkigrqxdiadoflaieh.supabase.co/storage/v1/object/public/logo/Logo.png" alt="Q´mila">
+  </div>
+  <nav class="nav-actions">
+    <a href="clientes.html">Cargar pedido</a>
+    <a href="pedidos.html">Ver pedidos</a>
+    <a href="ver-clientes.html">Ver clientes</a>
+  </nav>
+</header>
 
-<h2>🍽️ Cargar nuevo pedido</h2>
-<form>
-<label>Cliente:</label><input type="text">
-<label>Producto:</label><input type="text">
-<label>Cantidad (kg):</label><input type="number" step="0.1" min="0">
-<button>Guardar pedido</button>
-</form>
+<main>
+  <div class="card" style="text-align:center">
+    <input id="buscarPedidos" class="search-input" placeholder="🔍 Buscar pedido..." />
+  </div>
+  <div class="card">
+    <table id="tablaPedidos">
+      <thead>
+        <tr>
+          <th>Cliente</th>
+          <th>Dirección</th>
+          <th>Ciudad</th>
+          <th>Teléfono</th>
+          <th>Producto</th>
+          <th>Cant. (kg)</th>
+          <th>Estado del pedido</th>
+          <th>Fecha de entrega pactada</th>
+          <th>Fecha real de entrega</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <div id="alertaPedidos" class="alerta" style="margin-top:12px;"></div>
+  </div>
+</main>
 </body></html>

@@ -1,28 +1,60 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Q´mila - Clientes</title>
+<html lang="es"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Q´mila - Cargar cliente y pedido</title>
 <link rel="stylesheet" href="css/style.css">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 <script src="js/clientes.js" defer></script>
-</head>
-<body>
+</head><body>
 
-<div class="header">
-  <img src="https://idpkigrqxdiadoflaieh.supabase.co/storage/v1/object/public/logo/Logo.png" alt="Q´mila Logo" class="logo">
-  <div id="alerta" class="alerta"></div>
-  <button class="menu-btn" onclick="location.href='index.html'">🏠 Menú principal</button>
-</div>
+<header class="header-bar">
+  <div class="header-left">
+    <img class="logo" src="https://idpkigrqxdiadoflaieh.supabase.co/storage/v1/object/public/logo/Logo.png" alt="Q´mila">
+  </div>
+  <nav class="nav-actions">
+    <a href="clientes.html">Cargar pedido</a>
+    <a href="pedidos.html">Ver pedidos</a>
+    <a href="ver-clientes.html">Ver clientes</a>
+  </nav>
+</header>
 
-<form>
-<h2>🧍 Datos del cliente</h2>
-<label>Nombre:</label><input type="text">
-<label>Apellido:</label><input type="text">
-<label>Dirección:</label><input type="text">
-<label>Ciudad:</label><input type="text">
-<label>Teléfono:</label><input type="text">
-<button>Guardar</button>
-</form>
+<main>
+  <form id="clienteForm" class="card">
+    <h2>🧍 Datos del cliente</h2>
+    <div class="autocomplete">
+      <label>Nombre</label>
+      <input type="text" id="nombre" autocomplete="off" required>
+      <div id="sugerencias" class="autocomplete-list"></div>
+    </div>
+    <label>Apellido</label><input type="text" id="apellido" required>
+    <label>Dirección</label><input type="text" id="direccion">
+    <label>Ciudad</label><input type="text" id="ciudad">
+    <label>Teléfono</label><input type="text" id="telefono">
+
+    <h2 style="margin-top:18px;">🍽️ Pedido</h2>
+    <div class="card" style="padding:12px;">
+      <table>
+        <thead><tr><th>Producto</th><th>Cantidad (kg)</th></tr></thead>
+        <tbody>
+          <tr><td>Bastoncitos de muzarella</td><td><input type="number" step="0.1" min="0" class="kg" data-producto="Bastoncitos de muzarella"></td></tr>
+          <tr><td>Milanesa de carne</td><td><input type="number" step="0.1" min="0" class="kg" data-producto="Milanesa de carne"></td></tr>
+          <tr><td>Milanesa de pollo</td><td><input type="number" step="0.1" min="0" class="kg" data-producto="Milanesa de pollo"></td></tr>
+          <tr><td>Milanesa de carne rellena</td><td><input type="number" step="0.1" min="0" class="kg" data-producto="Milanesa de carne rellena"></td></tr>
+          <tr><td>Milanesa de pollo rellena</td><td><input type="number" step="0.1" min="0" class="kg" data-producto="Milanesa de pollo rellena"></td></tr>
+          <tr><td>Papas fritas</td><td><input type="number" step="0.1" min="0" class="kg" data-producto="Papas fritas"></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <label style="margin-top:14px;">Fecha de entrega</label>
+    <input type="date" id="fechaEntrega" required>
+
+    <label>Hora de entrega</label>
+    <select id="horaEntrega" required></select>
+
+    <button class="primary" type="submit">💾 Guardar cliente y pedido</button>
+    <button id="limpiarBtn" type="button" class="primary" style="display:none;background:linear-gradient(45deg,#888,#777)">🗑️ Limpiar formulario</button>
+    <div id="alertaForm" class="alerta" style="max-width:600px;"></div>
+  </form>
+</main>
 </body></html>
